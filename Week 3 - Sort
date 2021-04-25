@@ -1,0 +1,91 @@
+sort1 uses: Bubble sort
+
+How do you know?: It is in the middle ground when talking about the sorted list, it is not as fast
+                  as merge sorting but not as slow as selection sorting.
+
+sort2 uses: Merge sort
+
+How do you know?: Due to it's upper bound being n*log n, it should be the fastest at sorting,
+                  which is confirmed by sort2 being the absolute fastest in my conclusions.
+
+sort3 uses: Selection sort
+
+How do you know?: In a sorted scenery, sort3 took the longest to run, which may be due to it
+                  using selection sort, since it iterates through the whole list looking for the
+                  smallest number. Even though we know the smallest will always be the first in a 
+                  sorted array, the computer doesn't. So it looks through the whole list everytime,
+                  which takes more time than the other sortings.
+
+Conclusions:
+
+Random10000.txt:
+- sort1 0.501
+- sort2 0.116
+- sort3 0.247
+
+Reversed10000.txt:
+- sort1 0.407
+- sort2 0.038
+- sort3 0.234
+
+Sorted10000.txt:
+- sort1 0.108
+- sort2 0.021
+- sort3 0.175
+
+Sort1 is slow when sorting random and reversed but it's not the slowest when sorting sorted.
+Sort2 is the fastest when sorting random, reversed and sorted.
+Sort3 is middle ground for sorting random and reversed but the slowest at sorting sorted.
+
+Annotations:
+
+Sort1
+
+./sort1 random10000.txt
+- real 0.501
+- user 0.221
+- sys 0.020
+
+./sort1 reversed10000.txt
+- real 0.407
+- user 0.187
+- sys 0.012
+
+./sort1 sorted10000.txt
+- real 0.108
+- user 0.003
+- sys 0.020
+
+Sort2
+
+./sort2 random10000.txt
+- real 0.116
+- user 0.010
+- sys 0.010
+
+./sort2 reversed10000.txt
+- real 0.038
+- user 0.004
+- sys 0.019
+
+./sort2 sorted10000.txt
+- real 0.021
+- user 0.012
+- sys 0.004
+
+Sort3
+
+./sort3 random10000.txt
+- real 0.247
+- user 0.107
+- sys 0.012
+
+./sort3 reversed10000.txt
+- real 0.234
+- user 0.105
+- sys 0.016
+
+./sort3 sorted10000.txt
+- real 0.175
+- user 0.107
+- sys 0.012
