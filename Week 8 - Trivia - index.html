@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+
+            function correct() {
+                document.querySelector('#q1').innerHTML = 'Correct!';
+            }
+
+            function incorrect() {
+                document.querySelector('#q1').innerHTML = 'Incorrect';
+            }
+
+            function stock() {
+                document.querySelector('#not').style.backgroundColor = '#add8e6';
+                document.querySelector('#even').style.backgroundColor = '#add8e6';
+                document.querySelector('#close').style.backgroundColor = '#add8e6';
+                document.querySelector('#answer').style.backgroundColor = '#add8e6';
+            }
+
+            function question2() {
+                let a = document.querySelector("#a").value;
+                a = a.toString();
+                a = a.toLowerCase();
+
+                // Note: For some reason, the input box only turns green or red after re-typing and re-submiting after the first submit
+                if (a == 'england') {
+                    document.querySelector('#a').style.backgroundColor = 'green';
+                    document.querySelector('#q2').innerHTML = "Correct!";
+                }
+
+                else {
+                    document.querySelector('#a').style.backgroundColor = 'red';
+                    document.querySelector('#q2').innerHTML = "Incorrect";
+
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                let questions = document.querySelector('body');
+
+                document.querySelector('#answer').onclick = function() {
+                    stock();
+                    correct();
+                    document.querySelector('#answer').style.backgroundColor = 'green';
+                }
+                document.querySelector('#not').onclick = function() {
+                    stock();
+                    incorrect();
+                    document.querySelector('#not').style.backgroundColor = 'red';
+                }
+                document.querySelector('#even').onclick = function() {
+                    stock();
+                    incorrect();
+                    document.querySelector('#even').style.backgroundColor = 'red';
+                }
+                document.querySelector('#close').onclick = function() {
+                    stock();
+                    incorrect();
+                    document.querySelector('#close').style.backgroundColor = 'red';
+                }
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    How many Rubik´s cube scrambles are possible?
+                </h3>
+                    <br>
+                    <h2 id='q1'></h2>
+                        <button id="not" type="button">Around 13 million</button>
+                        <button id="even" type="button">Around 18 billion</button>
+                        <button id="close" type="button">Around 95 quadrillion</button>
+                        <button id="answer" type="button">Around 43 quintillion</button>
+                    </form>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    In which country is it considered illegal to suspiciously handle a salmon to someone in public
+                </h3>
+                <h2 id='q2'></h2>
+                    <form onsubmit="question2(); return false;">
+                        <input method="get" id="a">
+                        <input type="submit" value="Check answer">
+                    </form>
+            </div>
+
+        </div>
+    </body>
+</html>
